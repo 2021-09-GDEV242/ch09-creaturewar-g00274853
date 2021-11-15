@@ -38,6 +38,9 @@ public abstract class Creature
      */
     public Creature (int str, int hp) {
        //implement this
+       this.str = str;
+       this.hp = hp;
+       this.max_hp = hp;
     }
     
     
@@ -47,7 +50,9 @@ public abstract class Creature
      */
     public int attack(){
         // TODO: implement a damage method
-        return 0;
+        int dmg;
+        dmg = Randomizer.nextInt(str);
+        return dmg;
     }
     
     
@@ -56,8 +61,11 @@ public abstract class Creature
      * @return true when current hit point level is greater than zero
      */
     public boolean isAlive() {
-        // TODO: implement a method to report if the creature yet lives
-        return false; //change this
+        boolean isAlive = false;
+        if( hp > 0) {
+            isAlive = true;
+        }
+        return isAlive;
     }
     
     /**
@@ -65,18 +73,25 @@ public abstract class Creature
      * @return true when current hit point level is less than or equal to zero
      */
     public boolean isKnockedOut() {
-        //TODO: implement a method to report if the creature has been killed
-        return false; //change this
+        boolean isKnockedOut = false;
+        if(!isAlive()) {
+            isKnockedOut = true;
+        }
+        return isKnockedOut; 
     }
     
     
-    /**
+     /**
      * takeDamage receives a value for the amount of damage to subtract from 
      * the current total of hit points
      * @param damage value to remove from hit point count
      */
     public void takeDamage(int damage) {
-        // TODO: implement this
+        hp = hp - damage;
     }
     
+    public int getHealth()
+    {
+        return hp;
+    }
 }
