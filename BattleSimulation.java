@@ -2,8 +2,8 @@ import java.util.ArrayList;
 /**
  * Write a description of class BattleSimulation here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Yixuan Sun
+ * @version 2021.11.15
  */
 public class BattleSimulation
 {
